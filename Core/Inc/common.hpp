@@ -3,19 +3,14 @@
 
 #include "stm32f10x.h"
 
-/**
- * @brief  Print formated string to SWO, display in ST-LINK Utility SWO Viewer.
- * @param  format: specifies the format for string.
- * @param  ...: list of args.
- * @retval None
- */
+/// @brief Print formated string to SWO, display in ST-LINK Utility SWO Viewer.
+/// @param format specifies the format for string.
+/// @param ... list of args.
+/// @return None
 int print_to_swo(const char *format, ...);
 
-/**
- * @brief  Use software-style to delay.
- * @param  count: time to delay.
- * @retval None
- */
+/// @brief Use software-style to delay.
+/// @param count time to delay.
 void software_delay(u32 count);
 
 /// @brief Use hardware-style to delay.
