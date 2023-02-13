@@ -4,7 +4,7 @@
 #include "stm32f10x.h" // Device header
 #include "common.hpp"
 
-/// @brief 软件I2C
+/// @brief software i2c
 class I2C
 {
 public:
