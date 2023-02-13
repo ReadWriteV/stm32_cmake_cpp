@@ -13,11 +13,11 @@
 // B B B B B B B B B B B B B B B B  7
 // B B B B B B B B B B B B B B B B  8
 
-/// @brief 每个显示单元高为16，宽为8
+/// @brief For each dispaly unit, the height is 16 pixel, the width is 8 pixel.
 class OLED
 {
 public:
-    /// @brief 初始化SSD1306
+    /// @brief initialize SSD1306
     OLED();
 
     /// @brief 设置显示地址，要求为页面寻址模式
@@ -50,20 +50,6 @@ public:
     /// @param column 指定显示的列，1 ~ 121，（第121列后换行显示字符）
     /// @param str 要显示的字符串
     void show(uint8_t row, uint8_t column, const char *str);
-
-    /// @brief 显示汉字
-    /// @param x 起点坐标
-    /// @param y 起点坐标
-    /// @param no 汉字编号
-    [[deprecated]] void show_chinese(uint8_t x, uint8_t y, uint8_t no);
-
-    /// @brief 显示显示BMP图片128×64起始点坐标(x,y),x的范围0～127，y为页的范围0～7
-    /// @param x0
-    /// @param y0
-    /// @param x1
-    /// @param y1
-    /// @param BMP
-    [[deprecated]] void show(uint8_t x0, uint8_t y0, uint8_t x1, uint8_t y1, uint8_t BMP[]);
 
 private:
     //-----------------OLED端口定义----------------

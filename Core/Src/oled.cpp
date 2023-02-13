@@ -168,39 +168,6 @@ void OLED::show(uint8_t row, uint8_t column, const char *str)
     }
 }
 
-void OLED::show_chinese(uint8_t x, uint8_t y, uint8_t no)
-{
-    set_position(x, y);
-    for (uint8_t t = 0; t < 16; t++)
-    {
-        write_data(Hzk[2 * no][t]);
-    }
-    set_position(x, y + 1);
-    for (uint8_t t = 0; t < 16; t++)
-    {
-        write_data(Hzk[2 * no + 1][t]);
-    }
-}
-
-void OLED::show(uint8_t x0, uint8_t y0, uint8_t x1, uint8_t y1, uint8_t BMP[])
-{
-    uint8_t j = 0;
-    uint8_t y;
-
-    if (y1 % 8 == 0)
-        y = y1 / 8;
-    else
-        y = y1 / 8 + 1;
-    for (y = y0; y < y1; y++)
-    {
-        set_position(x0, y);
-        for (uint8_t x = x0; x < x1; x++)
-        {
-            write_data(BMP[j++]);
-        }
-    }
-}
-
 uint32_t OLED::pow(uint8_t m, uint8_t n)
 {
     uint32_t result = 1;
