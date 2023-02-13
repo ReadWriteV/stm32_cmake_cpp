@@ -2,7 +2,7 @@
 
 DMA::DMA(uint32_t addr_a, uint32_t addr_b, uint16_t size) : size(size)
 {
-    RCC_AHBPeriphClockCmd(RCC_AHBPeriph_DMA1, ENABLE);
+    RCC_AHBPeriphClockCmd(RCC_AHBPeriph_DMA1, FunctionalState::ENABLE);
 
     DMA_InitTypeDef DMA_InitStructure;
     DMA_InitStructure.DMA_PeripheralBaseAddr = addr_a;
@@ -18,16 +18,16 @@ DMA::DMA(uint32_t addr_a, uint32_t addr_b, uint16_t size) : size(size)
     DMA_InitStructure.DMA_Priority = DMA_Priority_Medium;
     DMA_Init(DMA1_Channel1, &DMA_InitStructure);
 
-    DMA_Cmd(DMA1_Channel1, DISABLE);
+    DMA_Cmd(DMA1_Channel1, FunctionalState::DISABLE);
 }
 
 void DMA::transfer()
 {
-    DMA_Cmd(DMA1_Channel1, DISABLE);
+    DMA_Cmd(DMA1_Channel1, FunctionalState::DISABLE);
     DMA_SetCurrDataCounter(DMA1_Channel1, size);
-    DMA_Cmd(DMA1_Channel1, ENABLE);
+    DMA_Cmd(DMA1_Channel1, FunctionalState::ENABLE);
 
-    while (DMA_GetFlagStatus(DMA1_FLAG_TC1) == RESET)
+    while (DMA_GetFlagStatus(DMA1_FLAG_TC1) == FlagStatus::RESET)
         ;
     DMA_ClearFlag(DMA1_FLAG_TC1);
 }
