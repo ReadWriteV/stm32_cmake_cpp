@@ -22,6 +22,14 @@ class ADC
 public:
     ADC();
     uint16_t get_value();
+
+private:
+    static constexpr inline ADC_TypeDef *adc = ADC1;
+    static constexpr inline uint8_t adc_channel = ADC_Channel_0;
+    static constexpr inline uint32_t adc_clock = RCC_APB2Periph_ADC1;
+    static constexpr inline uint32_t adc_gpio_clock = RCC_APB2Periph_GPIOA;
+    static constexpr inline uint16_t adc_gpio_pin = GPIO_Pin_0;
+    static constexpr inline GPIO_TypeDef *adc_gpio_port = GPIOA;
 };
 
 #endif
